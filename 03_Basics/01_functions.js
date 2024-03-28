@@ -122,21 +122,21 @@ to a variable.
 // IIFEs are also useful for establishing private methods for accessible functions while still exposing some properties for later use.[13] The following example comes from Alman's post on IIFEs.[1]
 
 // // "counter" is a function that returns an object with properties, which in this case are functions.
-let counter = (function () {
-    let i = 0;
+// let counter = (function () {
+//     let i = 0;
 
-    return {
-        get: function () {
-            return i;
-        },
-        set: function (val) {
-            i = val;
-        },
-        increment: function () {
-            return ++i;
-        }
-    };
-})();
+//     return {
+//         get: function () {
+//             return i;
+//         },
+//         set: function (val) {
+//             i = val;
+//         },
+//         increment: function () {
+//             return ++i;
+//         }
+//     };
+// })();
 
 // These calls access the function properties returned by "counter".
 // counter.get();       // 0
@@ -144,6 +144,39 @@ let counter = (function () {
 // counter.increment(); // 4
 // counter.increment(); // 5
 // console.log(counter.get());
- console.log(counter.set(3))
- console.log(counter.increment())
- 
+//  console.log(counter.set(3))
+//  console.log(counter.increment())
+
+// fetch("https://www.britannica.com/place/Nepal").then((Response) =>{
+//       if(!Response.ok){
+//         throw new Error(`HTTP error: ${Response.status}`);
+//       }
+//       let xx = Response.text();
+          
+//       return JSON.stringify(xx); 
+// }).then((text)=>{
+//     console.log(text);
+// }).catch((error)=>{
+//     console.log(`Could'not fetch verse: ${error}`);
+// })
+
+const jsonText = `{
+    "browsers": {
+      "firefox": {
+        "name": "Firefox",
+        "pref_url": "about:config",
+        "releases": {
+          "1": {
+            "release_date": "2004-11-09",
+            "status": "retired",
+            "engine": "Gecko",
+            "engine_version": "1.7"
+          }
+        }
+      }
+    }
+  }`;
+  
+  console.log(JSON.parse(jsonText));
+
+

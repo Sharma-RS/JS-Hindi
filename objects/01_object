@@ -1,0 +1,119 @@
+//1. Singleton
+//2.object literals
+//03
+// const obj = {
+//        foo: 1,
+//        propertyIsEnumerable(){
+//         return false;
+//        },
+// };
+
+// console.log(obj.propertyIsEnumerable("foo"));
+// console.log(Object.prototype.propertyIsEnumerable.call(obj, "foo"));
+
+
+// const o = {
+//       a: 1,
+//       b: 2,
+//       __proto__:{
+//         c:3,
+//         d:4
+//      },  
+// };
+// console.log(o.d)
+
+// const parent = {
+//      value: 2,
+//      method(){
+//         return this.value + 1;
+//      },
+// };
+// const child = {
+//       __proto__:parent,
+// }
+// console.log(child.method1())
+
+/***************************** */
+// const boxPrototype = {
+//       getvalue() {
+//               return this.value;
+//       },
+// };
+
+// const boxes = [
+//         {value: 1, __proto__:boxPrototype},
+//         {value: 2, __proto__:boxPrototype},
+//         {value: 3, __proto__:boxPrototype},
+// ];
+/********************************** */
+
+//  const obj1 = {};
+//  const obj2 = Object.create(null);
+//  const obj3 = {__proto__:null};
+
+// // console.log(obj1)
+// // console.log(obj2)
+// // console.log(obj3)
+
+// obj2.toString = Object.prototype.toString;
+// console.log(obj2.toString())
+
+// function tree(name) {
+//         this.name = name;
+// }
+// const t = new tree("sharma")
+// console.log(t)
+/********************************************************** */
+// //Object.assign()
+// const target = {a:1,b:2};
+// const source = {c:3,d:4};
+// const source1 = {e:5,f:6};
+
+
+
+// const returnedTarget = Object.assign(target,source,source1)
+ 
+//   console.log(target);
+//   console.log(source);
+//   console.log(source1);
+
+// //console.log(returnedTarget.f); 
+//classical inheritance with Object.create() 
+/***************************************************************** */
+// function Shape() {
+//          this.x =  0;
+//          this.y = 0;
+// }
+// Shape.prototype.move = function (x,y) {
+//        this.x +=x;
+//        this.y +=y;
+//        console.log("shape moved");
+// }
+
+// function Rectangle() {
+//          Shape.call(this);
+// }
+// Rectangle.prototype = Object.create(Shape.prototype, {
+//           constructor: { value: Rectangle,enumerable: false, writable: true,configurable: true,},      
+// })
+
+// const rect = new Rectangle();
+// //console.log(rect)
+// //console.log(rect instanceof Rectangle)
+// console.log(rect instanceof Shape)
+
+// console.log(rect.move(1,1))
+/********************************************************** */
+const inventory = [
+    { name: "asparagus", type: "vegetables", quantity: 5 },
+    { name: "bananas", type: "fruit", quantity: 0 },
+    { name: "goat", type: "meat", quantity: 23 },
+    { name: "cherries", type: "fruit", quantity: 5 },
+    { name: "fish", type: "meat", quantity: 22 },
+  ];
+
+  //console.log(inventory)
+   let result = Object.groupBy(inventory,({ type}) => type);
+
+  
+  console.log(result)
