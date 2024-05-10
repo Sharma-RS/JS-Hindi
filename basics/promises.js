@@ -23,19 +23,38 @@
 //        console.log("Error");
 // })   
 /***********************************************************************/
-const promiseThree = new Promise((resolve,reject) => {
-      let tf = true;
-      if(tf){
-         resolve({name:"Rahey Shyam Sharma", age: 48, location:"Nepal"})
-      } else {
-        reject("somthing went error");
-      }
+// const promiseThree = new Promise((resolve,reject) => {
+//       let tf = true;
+//       if(tf){
+//          resolve({name:"Rahey Shyam Sharma", age: 48, location:"Nepal"})
+//       } else {
+//         reject("somthing went error");
+//       }
+// })
+// promiseThree.then((data)=> {
+//      console.log(data.location)
+// }).catch((error)=> {
+//       console.log(error);
+// }).finally(()=> {
+//     console.log("done resove or rejected");
+// })
+/***********************************************************************/
+const promiseFour = new Promise((resolve,reject)=> {
+      setTimeout(() => {
+          let error = false;
+          if(!error){
+            resolve({username:"Radhey",password:123});
+          }else {
+            reject('Error: Somthing went wrong!')   
+          }   
+      }, 500); 
 })
-promiseThree.then((data)=> {
-     console.log(data.location)
-}).catch((error)=> {
-      console.log(error);
-}).finally(()=> {
-    console.log("done resove or rejected");
+promiseFour.then((user)=> {
+       console.log(user);
+       return user;         
+}).then((username)=> {
+       console.log(username.password);
+       return username.username;
+    }).then((pwd)=>{
+     console.log(pwd);
 })
-    
