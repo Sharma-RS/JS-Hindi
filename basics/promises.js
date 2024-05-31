@@ -39,22 +39,54 @@
 //     console.log("done resove or rejected");
 // })
 /***********************************************************************/
-const promiseFour = new Promise((resolve,reject)=> {
-      setTimeout(() => {
-          let error = false;
-          if(!error){
-            resolve({username:"Radhey",password:123});
-          }else {
-            reject('Error: Somthing went wrong!')   
-          }   
-      }, 500); 
-})
-promiseFour.then((user)=> {
-       console.log(user);
-       return user;         
-}).then((username)=> {
-       console.log(username.password);
-       return username.username;
-    }).then((pwd)=>{
-     console.log(pwd);
-})
+// const promiseFour = new Promise((resolve,reject)=> {
+//       setTimeout(() => {
+//           let error = false;
+//           if(!error){
+//             resolve({username:"Radhey",password:123});
+//           }else {
+//             reject('Error: Somthing went wrong!')   
+//           }   
+//       }, 500); 
+// })
+// promiseFour.then((user)=> {
+//        console.log(user);
+//        return user;         
+// }).then((username)=> {
+//        console.log(username.password);
+//        return username.username;
+//     }).then((pwd)=>{
+//      console.log(pwd);
+// }).catch((error)=>{
+//  console.log(error)        
+//})
+/***********************************************************************/
+const promiseFive = new Promise((resolve,reject)=> {
+    setTimeout(() => {
+        let error = true;
+        if(!error){
+          resolve({userName:"Radhey", Pwd: 1234});
+        } else {
+           reject("something went wrong");
+        }
+    }, 500);
+ })
+
+// async function consumePromiseFive(){
+//       let result =  await promiseFive;
+//       console.log(result);
+// }
+// consumePromiseFive().catch((error)=>{
+//                  console.log(error);
+// })
+
+
+async function conPromiseFive(){
+    try {
+        let result =  await promiseFive;
+        console.log(result);
+    } catch (error) {
+      console.log(error);        
+    }
+}
+
